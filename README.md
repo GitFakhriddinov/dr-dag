@@ -5,6 +5,8 @@
 ![Dependencies](https://img.shields.io/badge/runtime%20dependencies-0-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+📖 **Read the story behind it:** [On-call assistant that reads failed Airflow logs so your team doesn't have to](https://medium.com/@fbakhtiyorjon/on-call-assistant-that-reads-failed-airflow-logs-so-your-team-doesnt-have-to-dabe32a3c21a) (Medium)
+
 **An on-call assistant for Apache Airflow.** When a task fails, Dr. Dag reads the log, finds the
 line of your code that broke, explains the root cause, and — only when it is safe — proposes a
 minimal fix as a **draft** pull request. It also reviews DAG and SQL code for the anti-patterns that
