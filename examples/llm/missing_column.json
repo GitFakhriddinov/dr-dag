@@ -1,0 +1,8 @@
+{
+  "category": "missing_column",
+  "root_cause": "sql/shop_daily_sales.sql sums a column called `amont`, which does not exist in raw.orders. ClickHouse rejected the query with UNKNOWN_IDENTIFIER and suggested `amount`, so this is a typo in the query, not a schema change.",
+  "confidence": 0.93,
+  "fix_summary": "Rename `amont` to `amount` in the revenue aggregate.",
+  "needs_human": false,
+  "patch": "--- a/sql/shop_daily_sales.sql\n+++ b/sql/shop_daily_sales.sql\n@@ -4,7 +4,7 @@\n     toDate(created_at) AS day,\n     store_id,\n     count()            AS orders,\n-    sum(amont)         AS revenue\n+    sum(amount)        AS revenue\n FROM raw.orders\n WHERE toDate(created_at) = {ds:Date}\n   AND status = 'paid'\n"
+}

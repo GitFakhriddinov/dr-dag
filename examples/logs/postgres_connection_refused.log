@@ -1,0 +1,11 @@
+[2026-10-10, 01:15:02 UTC] {taskinstance.py:2614} INFO - Dependencies all met for dag_id=crm_sync, task_id=extract_customers, run_id=scheduled__2026-10-09T01:15:00+00:00, map_index=-1
+[2026-10-10, 01:15:03 UTC] {base.py:84} INFO - Retrieving connection 'crm_postgres'
+[2026-10-10, 01:15:05 UTC] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/crm_sync.py", line 22, in extract_customers
+    conn = psycopg2.connect("postgresql://etl_user:Very$ecret1@crm-db:5432/crm")
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "crm-db" (10.0.4.17), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+[2026-10-10, 01:15:05 UTC] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=crm_sync, task_id=extract_customers, run_id=scheduled__2026-10-09T01:15:00+00:00

@@ -1,0 +1,9 @@
+[2026-10-10, 06:00:03 UTC] {taskinstance.py:2614} INFO - Dependencies all met for dag_id=finance_export, task_id=write_excel, run_id=scheduled__2026-10-09T06:00:00+00:00, map_index=-1
+[2026-10-10, 06:00:04 UTC] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/finance_export.py", line 31, in write_excel
+    frame.to_excel(path, index=False)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1167, in __new__
+    engine = config.get_option(f"io.excel.{ext}.writer", silent=True)
+ModuleNotFoundError: No module named 'openpyxl'
+[2026-10-10, 06:00:04 UTC] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=finance_export, task_id=write_excel, run_id=scheduled__2026-10-09T06:00:00+00:00

@@ -1,0 +1,10 @@
+[2026-10-10, 02:10:00 UTC] {taskinstance.py:2614} INFO - Dependencies all met for dag_id=user_cohorts, task_id=build_retention, run_id=scheduled__2026-10-09T02:00:00+00:00, map_index=-1
+[2026-10-10, 02:14:51 UTC] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/user_cohorts.py", line 57, in build_retention
+    client.command(RETENTION_SQL)
+  File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_connect/driver/httpclient.py", line 405, in _error_handler
+    raise OperationalError(err_str) if retried else DatabaseError(err_str) from None
+clickhouse_connect.driver.exceptions.DatabaseError: HTTPDriver for http://clickhouse:8123 received ClickHouse error code 241
+ Code: 241. DB::Exception: Memory limit (for query) exceeded: would use 9.31 GiB (attempt to allocate chunk of 4194304 bytes), maximum: 9.31 GiB. (MEMORY_LIMIT_EXCEEDED)
+[2026-10-10, 02:14:51 UTC] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=user_cohorts, task_id=build_retention, run_id=scheduled__2026-10-09T02:00:00+00:00
